@@ -1,0 +1,28 @@
+{
+  "name": "codherent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuperMaltese/code_commerce.git"
+  },
+  "keywords": [
+    "code",
+    "commerce",
+    "money"
+  ],
+  "author": "Kevin Gao, Clay Tsay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SuperMaltese/code_commerce/issues"
+  },
+  "homepage": "https://github.com/SuperMaltese/code_commerce#readme",
+  "dependencies": {
+    "express-validator": "^6.2.0"
+  }
+}

@@ -17,7 +17,7 @@
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
       <!-- May not be able to use the Creative Commons logo due to trademark stuff. -->
-      <img src="./assets/images/cc_logo.svg" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+      <img src="/assets/images/cc_logo.svg" width="30" height="30" class="d-inline-block align-top" alt="Logo">
       Code Commerce
     </a>
   </nav>
@@ -54,8 +54,7 @@
       </div>
       <div class="col">
         <form>
-          <textarea id="editor" rows="10" cols="30">The cat was playing in the garden.
-          </textarea>
+          <textarea id="editor"></textarea>
         </form>
       </div>
     </div>
@@ -74,13 +73,15 @@
     crossorigin="anonymous"></script>
 
   <!-- CodeMirror stuff -->
-  <link rel="stylesheet" href="./node_modules/codemirror/lib/codemirror.css">
-  <script src="./node_modules/codemirror/lib/codemirror.js"></script>
-  <script src="./node_modules/codemirror/mode/javascript/javascript.js"></script>
+  <link rel="stylesheet" href="/assets/codemirror/lib/codemirror.css">
+  <script src="/assets/codemirror/lib/codemirror.js"></script>
+  <script src="/assets/codemirror/mode/python/python.js"></script>
   <script>
     $(document).ready(function () {
       var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-        lineNumbers: true
+        lineNumbers: true,
+        lineWrapping: true,
+
       });
     });
   </script>

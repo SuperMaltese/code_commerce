@@ -1,16 +1,22 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true })); 
+const path = require("path");
+const express = require("express");
+const app = express();
+const port = 3000;
 
-app.get('/', function (req, res) {
-  res.sendFile('index.html', { root: __dirname });
+app.use(
+  "/assets",
+  express.static(path.join(__dirname, "/assets"))
+);
+app.get("/", (request, result) => {
+  result.sendFile(path.join(__dirname + "/index.html"));
+});
+app.get("/editor", (request, result) => {
+  result.sendFile(path.join(__dirname + "/code_editor.html"));
+});
+app.get("/tasks", (request, result) => {
+  result.sendFile(path.join(__dirname + "/task_selector.html"));
 });
 
-app.post('/myaction', function(req, res) {
-  res.send('Code: <pre>' + req.body.code + '</pre>.');
-});
-
-app.listen(3000, function () {
-  console.log('server running on port 3000');
+app.listen(port, () => {
+  console.log(`Server running! Listening on port ${port}.`);
 });

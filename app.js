@@ -3,13 +3,19 @@ var app = express();
 var path = require("path");
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true })); 
-app.use(
-  "/",
-  express.static(path.join(__dirname, "node_modules/codemirror"))
-);
+app.use(express.static(__dirname + "/public", {
+    index: false, 
+    immutable: true, 
+    cacheControl: true,
+    maxAge: "30d"
+}));
 
 app.get('/', function (req, res) {
   res.sendFile('index.html', { root: __dirname });
+});
+
+app.get('/editor', function (req, res) {
+  res.sendFile('editor.html', { root: __dirname });
 });
 
 app.post('/myaction', function(req, res) {

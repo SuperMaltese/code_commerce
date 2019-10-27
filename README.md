@@ -1,4 +1,4 @@
-# Code Commerce
+# CodeCommerce
 A platform where you can write code for busy engineers for money.
 
 ![alt text]("./assets/images/Screenshot from 2019-10-26 16-58-25.png" "Logo Title Text 1")

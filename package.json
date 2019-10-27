@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/SuperMaltese/code_commerce#readme",
   "dependencies": {
+    "codemirror": "^5.49.2",
     "express-validator": "^6.2.0"
   }
 }

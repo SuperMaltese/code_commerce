@@ -1,7 +1,7 @@
 # CodeCommerce
 A platform where you can write code for busy engineers for money.
 
-![Logo Title Text 1](https://raw.githubusercontent.com/SuperMaltese/code_commerce/blob/master/assets/images/options.png)
+![Logo Title Text 1](https://github.com/SuperMaltese/code_commerce/blob/master/assets/images/options.png)
 
 Features a LeetCode-esque interface in which coders can code solutions to common coding tasks come across by industry engineers.
 

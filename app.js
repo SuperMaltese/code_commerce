@@ -4,9 +4,11 @@ const app = express();
 const port = 3000;
 const pg = require("pg");
 const fs = require('fs');
+var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -50,14 +52,38 @@ app.get("/signup", (request, result) => {
 app.post("/newuser", (request, result) => {
   result.send("Signed up!");
   pool.connect(function (err, client, done) {
-    var test = 1;
-    console.log(request.body.username)
     var qry = "INSERT INTO ccomm.users (username, karma, answers, questions, id) VALUES ('" + request.body.username + "', 0, 0, 0, default)";
-    console.log(qry);
     client.query(qry, done);
   }); 
 });
 
+app.post("/login", (request, results) => {
+  pool.connect(function (err, client, done) {
+    console.log(request.body.loginuser);
+    var qry = "SELECT * FROM ccomm.users WHERE username = '" + request.body.loginuser + "'";
+    console.log(qry);
+    client.query(qry, function (error, res) {
+        if (error) {
+            console.log(error);
+            return;
+        }
+        console.log(res.rowCount);
+        if (res.rowCount) {
+            console.log(request.body.loginuser);
+            results.cookie('username', request.body.loginuser, {maxAge: 90000, httpOnly: true});
+            results.send("loggedin");
+        } else {
+            console.log("username wasn't found");
+            results.send("nothing to be found");
+        }
+    });
+});
+});
+
+app.get("/get_cookie", (request, results) => {
+  results.send(request.cookies['username']);
+});
+    
 app.get("/tasks", (request, result) => {
   result.sendFile(path.join(__dirname + "/task_selector.html"));
 });

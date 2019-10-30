@@ -5,10 +5,16 @@
 </head>
 
 <body>
-<form action="http://localhost:3000/newuser" method="post">
+<form action="/newuser" method="post">
     <input type = "text" name = "username" value= "Username" />
     <input type = "password" value="Password"/>
     <input type = "submit" value = "Sign Up" />
+</form>
+
+<form action="/login" method="post">
+    <input type = "text" name = "loginuser" />
+    <input type = "password" name = "loginpass" />
+    <input type = "submit" value = "Login" />
 </form>
 
 </body>
